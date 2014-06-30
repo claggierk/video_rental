@@ -2,10 +2,10 @@ from Customer import Customer
 from Video import Video
 import unittest
 
-first_name = "Clark"
-last_name = "Phillips"
-phone_number = "979-229-5854"
-dob = (1,18,1985)
+first_name = "Lionel"
+last_name = "Messi"
+phone_number = "777-321-1234"
+dob = (6,11,1980)
 email = "clark.r.phillips@gmail.com"
 
 class customerTests(unittest.TestCase):
@@ -44,8 +44,8 @@ class customerTests(unittest.TestCase):
         c1 = Customer(first_name, last_name, phone_number, dob, email)
         c1.rent_video(video.ID)
 
-        self.assertEqual(1, len(c1.rented_videos))
-        self.assertEqual(video.ID, c1.rented_videos[0])
+        self.assertEqual(1, len(c1.rented_video_IDs))
+        self.assertEqual(video.ID, c1.rented_video_IDs[0])
 
     def testReturnVideo(self):
         """tests the returning of a video"""
@@ -54,9 +54,9 @@ class customerTests(unittest.TestCase):
         
         c1 = Customer(first_name, last_name, phone_number, dob, email)
         c1.rent_video(video.ID)
-        self.assertEqual(1, len(c1.rented_videos))
+        self.assertEqual(1, len(c1.rented_video_IDs))
         c1.return_video(video.ID)
-        self.assertEqual(0, len(c1.rented_videos))
+        self.assertEqual(0, len(c1.rented_video_IDs))
 
     def testRentReturnVideo(self):
         """tests the renting and returning of a video (tests duplicate rents and returns)"""
@@ -68,15 +68,15 @@ class customerTests(unittest.TestCase):
         c1.rent_video(video1.ID)
         c1.rent_video(video2.ID)
         c1.rent_video(video3.ID)
-        self.assertEqual(3, len(c1.rented_videos))
+        self.assertEqual(3, len(c1.rented_video_IDs))
         c1.return_video(video2.ID)
-        self.assertEqual(2, len(c1.rented_videos))
+        self.assertEqual(2, len(c1.rented_video_IDs))
         c1.rent_video(video2.ID)
         c1.rent_video(video2.ID) # duplicate rental videos (same UUID)
-        self.assertEqual(3, len(c1.rented_videos))
+        self.assertEqual(3, len(c1.rented_video_IDs))
         c1.return_video(video3.ID)
         c1.return_video(video3.ID) # duplicate return videos (same UUID)
-        self.assertEqual(2, len(c1.rented_videos))
+        self.assertEqual(2, len(c1.rented_video_IDs))
 
 def main():
     unittest.main()

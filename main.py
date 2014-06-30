@@ -1,66 +1,52 @@
-from video import Video
-from customer import Customer
-from videoRental import Store
-from videoRental import Kiosk
+from Video import Video
+from Customer import Customer
+from VideoRental import Store
+from VideoRental import Kiosk
 
+address1 = "111 KLeonard Way"
+address2 = "222 TDuncan Lane"
+address3 = "333 Marco Blvd"
 
-def PrintVideos(video_rental):
-	print video_rental.description
-	print video_rental.location
-	print "All videos:"
-	for a_video in video_rental.all_videos():
-		print "   %s" % (a_video.title)
-
-	print "Rented videos:"
-	for a_video in video_rental.rented_videos():
-		print "   %s" % (a_video.title)
-
-	print "Rentable videos:"
-	for a_video in video_rental.rentable_videos():
-		print "   %s" % (a_video.title)
+first_name1 = "Jesse's"
+last_name1 = "Girl"
+first_name2 = "Johnny"
+last_name2 = "B. Good"
+phone_number1 = "000-555-1234"
+phone_number2 = "111-222-3333"
+phone_number3 = "111-222-4444"
+dob = (1,18,1985)
+email = "clark.r.phillips@gmail.com"
 
 def main():
-	store1 = Store("111 KLeonard Way")
-	addedVideoID1 = store1.add_video(Video("Braveheart"))
-	addedVideoID2 = store1.add_video(Video("Gladiator"))
-	store1.add_video(Video("300"))
-	store1.add_video(Video("Spaceballs"))
-	store1.add_video(Video("Frozen"))
-	store1.add_video(Video("The Lion King"))
-	store1.add_video(Video("The Lion King"))
-	store1.add_video(Video("The Lion King"))
-	
-	store1.add_customer(Customer("Clark", "Phillips", "9792295854", "01181985", "clark.r.phillips@gmail.com"))
-	store1.add_customer(Customer("Bandit", "Phillips", "5121112222", "01191985", "bandit@gmail.com"))
-	store1.add_customer(Customer("Nugget", "Phillips", "5121113333", "01201985", "nugget@gmail.com"))
-
-	store1.customers["9792295854"].rent_video(addedVideoID1)
-	store1.customers["9792295854"].rent_video(addedVideoID2)
-
-	PrintVideos(store1)
-
-	store1.customers["9792295854"].return_video(addedVideoID1)
-	PrintVideos(store1)
-
-	'''store2 = Store("222 TDuncan Lane")
-	store2.add_video(Video("Born on the 4th of July", "R"))
-	store2.add_video(Video("Juno", "PG13"))
-	store2.add_video(Video("22 Jump Street", "R"))
-	store2.add_video(Video("Forrest Gump", "PG13"))
-	store2.add_video(Video("Top Gun", "G"))
-	store2.add_video(Video("Cinderalla Story", "PG13"))
-	store2.add_video(Video("Saving Private Ryan", "R"))
-	store2.add_video(Video("Captain Phillips", "PG13"))
-	store2.add_video(Video("Big", "PG13"))
-	PrintVideos(store2)
-
-	kiosk1 = Kiosk("333 Marco Blvd")
-	kiosk1.add_video(Video("Kill Bill", "R"))
-	kiosk1.add_video(Video("The Avengers", "PG13"))
-	kiosk1.add_video(Video("Jack Reacher", "R"))
-	kiosk1.add_video(Video("Skyfall", "PG13"))
-	kiosk1.add_video(Video("GI Joe", "PG13"))
-	PrintVideos(kiosk1)'''
+    """
+    sample program demonstrating what this system can do
+    adds 1 store
+    adds 2 customers
+    adds 8 videos
+    the customers rent/return videos
+    """
+    store1 = Store(address1)
+    store1.add_customer(Customer(first_name1, last_name1, phone_number1, dob, email))
+    store1.add_customer(Customer(first_name2, last_name2, phone_number2, dob, email))
+    video1 = store1.add_video(Video("300"))
+    video2 = store1.add_video(Video("Spaceballs"))
+    video3 = store1.add_video(Video("Frozen"))
+    video4 = store1.add_video(Video("World War Z"))
+    video5 = store1.add_video(Video("Sister Act"))
+    video6 = store1.add_video(Video("The Mighty Ducks"))
+    video7 = store1.add_video(Video("Invincible"))
+    video8 = store1.add_video(Video("Dances With Wolves"))
+    store1.rent_video(phone_number1, video3)
+    store1.rent_video(phone_number1, video4)
+    store1.rent_video(phone_number1, video5)
+    store1.rent_video(phone_number2, video7)
+    store1.rent_video(phone_number2, video8)
+    print "Rented: ", store1.populate_videos(store1.rented_video_IDs())
+    store1.rent_video(phone_number1, video8) # try to rent something that has already been rented
+    store1.return_video(video4)
+    store1.return_video(video1) # try to return something that has not been rented
+    print "Rented: ", store1.populate_videos(store1.rented_video_IDs())
+    print " ### Customer: %s is currently renting: %s" % (store1.customers[phone_number1], store1.populate_videos(store1.customers[phone_number1].rented_video_IDs))
 
 if __name__ == "__main__":
-	main()
+    main()
