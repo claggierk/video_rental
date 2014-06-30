@@ -1,5 +1,5 @@
 ##########################
-### Requiremets ##########
+### Requirements ##########
 ##########################
 In order to run, you must become a member of themoviedb
 visit https://www.themoviedb.org/account/signup
