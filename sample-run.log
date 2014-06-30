@@ -1,0 +1,93 @@
+claggierk@tex:~/Projects/video_rental$ ./lines.sh 
+python lines: 489
+
+claggierk@tex:~/Projects/video_rental$ python videoTests.py 
+ ##### Warning: could not find any matches for f1jam
+..
+----------------------------------------------------------------------
+Ran 2 tests in 1.210s
+
+OK
+claggierk@tex:~/Projects/video_rental$ 
+claggierk@tex:~/Projects/video_rental$ python customerTests.py 
+. ##### Warning: Invalid date of birth. Valid format (use integers): '(month, day, year)'
+. ##### Warning: Invalid phone number. Valid format: '###-###-####'
+.Customer: Lionel Messi is now renting: c30fea44-0fc5-4fcb-8aa8-c2da5c1e418a
+Customer: Lionel Messi is now renting: 86e9404f-084c-4e29-97a2-94d7c31d1eeb
+Customer: Lionel Messi is now renting: 1a4c9e0c-8e99-426c-a5d7-6ac636211e86
+Customer: Lionel Messi returned video: 86e9404f-084c-4e29-97a2-94d7c31d1eeb
+Customer: Lionel Messi is now renting: 86e9404f-084c-4e29-97a2-94d7c31d1eeb
+ ##### Warning: Customer 777-321-1234 is already renting 86e9404f-084c-4e29-97a2-94d7c31d1eeb
+Customer: Lionel Messi returned video: 1a4c9e0c-8e99-426c-a5d7-6ac636211e86
+ ##### Warning: Unexpected video returned
+.Customer: Lionel Messi is now renting: 53ade338-ce94-40c3-a5b6-64abcf33086e
+.Customer: Lionel Messi is now renting: a8d89888-1068-49ad-9d24-eec86334a3b0
+Customer: Lionel Messi returned video: a8d89888-1068-49ad-9d24-eec86334a3b0
+.
+----------------------------------------------------------------------
+Ran 6 tests in 3.895s
+
+OK
+claggierk@tex:~/Projects/video_rental$ 
+claggierk@tex:~/Projects/video_rental$ python videoRentalTests.py 
+Adding customer: Jesse's B. Good
+ ##### Warning: this customer already exists
+Adding customer: Jesse's B. Good
+ ##### Warning: Could not remove customer: 111-222-4444 (no entry)
+Removing customer: Jesse's B. Good
+.Adding: ID: 574b6f4d-afc9-4120-b4d4-a1ed33a4329a Title: 300 to inventory
+Adding: ID: cbc15b80-fe02-4857-9f33-9e111f71d8b0 Title: Spaceballs to inventory
+Adding: ID: 66e2b2ef-ed33-403e-b469-383bb07b733c Title: Frozen to inventory
+Adding: ID: 561fb7d1-1d34-4805-b2b3-65841e800cd3 Title: Frozen to inventory
+Removing: 574b6f4d-afc9-4120-b4d4-a1ed33a4329a from inventory
+Removing: 66e2b2ef-ed33-403e-b469-383bb07b733c from inventory
+Removing: 561fb7d1-1d34-4805-b2b3-65841e800cd3 from inventory
+.Adding customer: Jesse's B. Good
+Adding customer: Johnny B. Good
+Adding: ID: 1ee6d3a8-4d45-4490-ac71-a4b021b44520 Title: 300 to inventory
+Adding: ID: a177b56f-5b48-4757-82c8-f6da41079646 Title: Spaceballs to inventory
+Adding: ID: c0ecfc4c-ae17-4ca9-aa3d-89b49f33475c Title: Frozen to inventory
+Adding: ID: 86eb9e6e-ef01-46a7-a111-92a60a6d577c Title: World War Z to inventory
+Adding: ID: 0c479182-5379-4819-8eab-2dd48ea75631 Title: Sister Act to inventory
+Adding: ID: 83ad439d-d032-439b-9a9c-fde82227b4ad Title: The Mighty Ducks to inventory
+Adding: ID: 4093f2c0-d635-41a5-bc9c-eec3abdbec61 Title: Invincible to inventory
+Adding: ID: bd58da8d-b82d-4bf1-b442-0e9bd9fd92ad Title: Dances with Wolves to inventory
+Customer: Jesse's B. Good is now renting: c0ecfc4c-ae17-4ca9-aa3d-89b49f33475c
+Customer: Jesse's B. Good is now renting: 86eb9e6e-ef01-46a7-a111-92a60a6d577c
+Customer: Jesse's B. Good is now renting: 0c479182-5379-4819-8eab-2dd48ea75631
+Customer: Johnny B. Good is now renting: 4093f2c0-d635-41a5-bc9c-eec3abdbec61
+Customer: Johnny B. Good is now renting: bd58da8d-b82d-4bf1-b442-0e9bd9fd92ad
+ ##### Warning: video bd58da8d-b82d-4bf1-b442-0e9bd9fd92ad is not available for rent
+Customer: Jesse's B. Good returned video: 86eb9e6e-ef01-46a7-a111-92a60a6d577c
+Customer 000-555-1234 returned 86eb9e6e-ef01-46a7-a111-92a60a6d577c
+No customer had rented video: 1ee6d3a8-4d45-4490-ac71-a4b021b44520
+..
+----------------------------------------------------------------------
+Ran 4 tests in 8.742s
+
+OK
+claggierk@tex:~/Projects/video_rental$ 
+claggierk@tex:~/Projects/video_rental$ python main.py 
+Adding customer: Jesse's Girl
+Adding customer: Johnny B. Good
+Adding: ID: 35a1ab23-a983-46e3-99f9-8ae3e2d4119d Title: 300 to inventory
+Adding: ID: 1cdef25f-6274-4615-95f6-b7ac0235071d Title: Spaceballs to inventory
+Adding: ID: 5c1f0420-2ee9-4610-b024-18206607956b Title: Frozen to inventory
+Adding: ID: c716f39b-72c8-416a-8f3a-f5b65b9df9d7 Title: World War Z to inventory
+Adding: ID: 08135f5b-0bf0-48fd-8520-bdd37a3bef41 Title: Sister Act to inventory
+Adding: ID: f5d4c54b-d657-4629-b621-10c7bce48aeb Title: The Mighty Ducks to inventory
+Adding: ID: aa2a66b2-3950-4e13-87af-c4d41605bdc4 Title: Invincible to inventory
+Adding: ID: 8639c3ff-a749-4b8a-b6b0-21765aeb3914 Title: Dances with Wolves to inventory
+Customer: Jesse's Girl is now renting: 5c1f0420-2ee9-4610-b024-18206607956b
+Customer: Jesse's Girl is now renting: c716f39b-72c8-416a-8f3a-f5b65b9df9d7
+Customer: Jesse's Girl is now renting: 08135f5b-0bf0-48fd-8520-bdd37a3bef41
+Customer: Johnny B. Good is now renting: aa2a66b2-3950-4e13-87af-c4d41605bdc4
+Customer: Johnny B. Good is now renting: 8639c3ff-a749-4b8a-b6b0-21765aeb3914
+Rented:  [ID: 8639c3ff-a749-4b8a-b6b0-21765aeb3914 Title: Dances with Wolves, ID: 5c1f0420-2ee9-4610-b024-18206607956b Title: Frozen, ID: aa2a66b2-3950-4e13-87af-c4d41605bdc4 Title: Invincible, ID: 08135f5b-0bf0-48fd-8520-bdd37a3bef41 Title: Sister Act, ID: c716f39b-72c8-416a-8f3a-f5b65b9df9d7 Title: World War Z]
+ ##### Warning: video 8639c3ff-a749-4b8a-b6b0-21765aeb3914 is not available for rent
+Customer: Jesse's Girl returned video: c716f39b-72c8-416a-8f3a-f5b65b9df9d7
+Customer 000-555-1234 returned c716f39b-72c8-416a-8f3a-f5b65b9df9d7
+No customer had rented video: 35a1ab23-a983-46e3-99f9-8ae3e2d4119d
+Rented:  [ID: 8639c3ff-a749-4b8a-b6b0-21765aeb3914 Title: Dances with Wolves, ID: 5c1f0420-2ee9-4610-b024-18206607956b Title: Frozen, ID: aa2a66b2-3950-4e13-87af-c4d41605bdc4 Title: Invincible, ID: 08135f5b-0bf0-48fd-8520-bdd37a3bef41 Title: Sister Act]
+ ### Customer: Jesse's Girl is currently renting: [ID: 5c1f0420-2ee9-4610-b024-18206607956b Title: Frozen, ID: 08135f5b-0bf0-48fd-8520-bdd37a3bef41 Title: Sister Act]
+claggierk@tex:~/Projects/video_rental$
